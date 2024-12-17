@@ -1,26 +1,5 @@
 {
   "dependencies": {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "com.unity.ide.visualstudio": "2.0.22",
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-    "com.unity.postprocessing": "3.4.0",
-=======
-    "com.unity.ide.visualstudio": "2.0.22",
->>>>>>> 15d9ad0257e237a9a5bd542e1c3fbcff522834cb
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     "com.unity.render-pipelines.universal": "14.0.11",
     "com.unity.xr.interaction.toolkit": "2.6.3",
     "com.unity.xr.oculus": "4.3.0",
