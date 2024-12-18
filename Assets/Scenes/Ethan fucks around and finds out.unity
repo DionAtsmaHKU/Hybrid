@@ -2672,8 +2672,8 @@ MonoBehaviour:
   m_Camera: {fileID: 646525455}
   m_OriginBaseGameObject: {fileID: 1157411212}
   m_CameraFloorOffsetObject: {fileID: 329059124}
-  m_RequestedTrackingOriginMode: 2
-  m_CameraYOffset: 1.1176
+  m_RequestedTrackingOriginMode: 1
+  m_CameraYOffset: 1.6
 --- !u!4 &1157411214
 Transform:
   m_ObjectHideFlags: 0
@@ -2682,14 +2682,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157411212}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.25}
-  m_LocalScale: {x: 1, y: 1.9008877, z: 0.49270797}
+  m_LocalRotation: {x: 0, y: -0.53729963, z: 0, w: 0.8433914}
+  m_LocalPosition: {x: 0.36, y: 0, z: -0.08}
+  m_LocalScale: {x: 1, y: 1.69, z: 0.49270797}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 329059125}
   m_Father: {fileID: 1936402646}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -65, z: 0}
 --- !u!1001 &1176695475
 PrefabInstance:
   m_ObjectHideFlags: 0
