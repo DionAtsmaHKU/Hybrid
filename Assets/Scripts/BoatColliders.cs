@@ -7,23 +7,22 @@ public class BoatColliders : MonoBehaviour
     [SerializeField] Collider col;
     [SerializeField] Collider otherCol;
     [SerializeField] BoatMovement boat;
+    [SerializeField] AudioSource splashSound;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Paddle"))
         {
-            boat.PaddleForward();
-            col.enabled = false;
-            otherCol.enabled = true;
+            StartCoroutine(Paddle());
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    IEnumerator Paddle()
     {
-        if (collision.collider.CompareTag("Paddle"))
-        {
-            boat.PaddleForward();
-            col.enabled = false;
-            otherCol.enabled = true;
-        }
+        boat.PaddleForward();
+        splashSound.Play();
+        col.enabled = false;
+        yield return new WaitForSeconds(1f);
+        otherCol.enabled = true;
     }
 }
