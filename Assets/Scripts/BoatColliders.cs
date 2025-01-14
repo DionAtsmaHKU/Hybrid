@@ -20,6 +20,7 @@ public class BoatColliders : MonoBehaviour
     IEnumerator Paddle()
     {
         boat.PaddleForward();
+        boat.speed = 8;
         splashSound.Play();
         col.enabled = false;
         yield return new WaitForSeconds(1f);
