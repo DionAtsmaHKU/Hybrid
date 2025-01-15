@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "7601c54818eb49bf8ae16ee21bd0362e"
+        },
+        {
+            "m_Id": "b1b3217d21eb4b32a9ad317a7f47ec60"
         }
     ],
     "m_Keywords": [],
@@ -989,10 +992,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1457.0001220703125,
-            "y": -622.0000610351563,
+            "x": 1413.5999755859375,
+            "y": -904.0,
             "width": 208.0,
-            "height": 435.0
+            "height": 432.0000305175781
         }
     },
     "m_Slots": [
@@ -1025,7 +1028,7 @@
         "tex2d"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -3561,6 +3564,36 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "b1b3217d21eb4b32a9ad317a7f47ec60",
+    "m_Guid": {
+        "m_GuidSerialized": "d5e079a4-f4d6-4d00-95f9-f5f758df63f9"
+    },
+    "m_Name": "Texture2D",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Texture2D",
+    "m_DefaultReferenceName": "_Texture2D",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"105fac018dd5c014c8e7290ebc647868\",\"type\":3}}",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "b44120c3c19444f2aac032c6ad353f4e",
     "m_Group": {
@@ -4770,6 +4803,9 @@
         },
         {
             "m_Id": "7601c54818eb49bf8ae16ee21bd0362e"
+        },
+        {
+            "m_Id": "b1b3217d21eb4b32a9ad317a7f47ec60"
         }
     ]
 }

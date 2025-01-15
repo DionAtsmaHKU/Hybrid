@@ -7,6 +7,7 @@ public class GetStuckIdiot : MonoBehaviour
     [SerializeField] GameObject objToMove;
     [SerializeField] Collider col;
     [SerializeField] Collider otherCol;
+    [SerializeField] Animator animator;
 
     private Vector3 startPos;
 
@@ -17,6 +18,7 @@ public class GetStuckIdiot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        objToMove.SetActive(true);
         boatRb.velocity = Vector3.zero;
         boat.speed = 0;
         col.enabled = false;
@@ -29,6 +31,7 @@ public class GetStuckIdiot : MonoBehaviour
         {
             boat.speed = 5;
             col.enabled = true;
+            animator.SetTrigger("ByeStuff");
         }
     }
 }
