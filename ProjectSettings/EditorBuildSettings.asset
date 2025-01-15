@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ethan fucks around and finds out.unity
+    guid: cf651824be79ca542ad493917f94be5b
+  - enabled: 1
+    path: Assets/End.unity
+    guid: 0ec442abc75842a4b8634edafb99cbe1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 947113685c1e4d241a30c5146190c45a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}

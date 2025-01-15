@@ -7,9 +7,10 @@ public class GetStuckIdiot : MonoBehaviour
     [SerializeField] GameObject objToMove;
     [SerializeField] Collider col;
     [SerializeField] Collider otherCol;
-    [SerializeField] Animator animator;
+    [SerializeField] AudioSource audioSource;
 
     private Vector3 startPos;
+    private bool audioPlayed = false; // Flag to track if the audio has been played
 
     private void Start()
     {
@@ -23,15 +24,21 @@ public class GetStuckIdiot : MonoBehaviour
         boat.speed = 0;
         col.enabled = false;
         otherCol.enabled = false;
+
+        if (!audioPlayed) // Check if the audio has been played
+        {
+            audioSource.Play();
+            audioPlayed = true; // Mark the audio as played
+        }
     }
 
     private void Update()
     {
-        if (objToMove.transform.position != startPos)
+        if (Vector3.Distance(objToMove.transform.position, startPos) > 0.01f)
         {
             boat.speed = 5;
             col.enabled = true;
-            animator.SetTrigger("ByeStuff");
+            objToMove.SetActive(false);
         }
     }
 }
