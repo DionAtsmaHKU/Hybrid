@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class GetStuckIdiot : MonoBehaviour
 {
@@ -8,37 +10,69 @@ public class GetStuckIdiot : MonoBehaviour
     [SerializeField] Collider col;
     [SerializeField] Collider otherCol;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] XRGrabInteractable grabInteractable; // Reference to the XRGrabInteractable component
 
-    private Vector3 startPos;
-    private bool audioPlayed = false; // Flag to track if the audio has been played
+    private bool hasInteracted = false; // Ensure interaction happens only once
+    private bool audioPlayed = false; // Ensure audio is played only once
 
     private void Start()
     {
-        startPos = objToMove.transform.position;
+        // Subscribe to the selectEntered event
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.AddListener(OnGrab);
+        }
+        else
+        {
+            Debug.LogWarning("No XRGrabInteractable assigned to the script!");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the selectEntered event
+        if (grabInteractable != null)
+        {
+            grabInteractable.selectEntered.RemoveListener(OnGrab);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        objToMove.SetActive(true);
-        boatRb.velocity = Vector3.zero;
-        boat.speed = 0;
-        col.enabled = false;
-        otherCol.enabled = false;
-
-        if (!audioPlayed) // Check if the audio has been played
+        if (other.CompareTag("Boat"))
         {
-            audioSource.Play();
-            audioPlayed = true; // Mark the audio as played
+            objToMove.SetActive(true);
+            boatRb.velocity = Vector3.zero;
+            boat.speed = 0;
+            col.enabled = false;
+            otherCol.enabled = false;
+
+            if (!audioPlayed)
+            {
+                audioSource.Play();
+                audioPlayed = true;
+            }
         }
     }
 
-    private void Update()
+    private void OnGrab(SelectEnterEventArgs args)
     {
-        if (Vector3.Distance(objToMove.transform.position, startPos) > 0.01f)
+        if (!hasInteracted)
         {
-            boat.speed = 5;
-            col.enabled = true;
-            objToMove.SetActive(false);
+            StartBoatMovement();
         }
+    }
+
+    private void StartBoatMovement()
+    {
+        boat.speed = 5; // Restore speed
+        boatRb.velocity = boat.transform.forward * boat.speed; // Explicitly set velocity
+
+        col.enabled = true;
+        objToMove.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;
+
+        hasInteracted = true; // Prevent multiple interactions
+        Debug.Log("Boat started moving after grab!");
     }
 }
