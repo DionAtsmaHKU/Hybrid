@@ -10,31 +10,15 @@ public class GetStuckIdiot : MonoBehaviour
     [SerializeField] Collider col;
     [SerializeField] Collider otherCol;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] XRGrabInteractable grabInteractable; // Reference to the XRGrabInteractable component
+
+    private Vector3 startPos;
 
     private bool hasInteracted = false; // Ensure interaction happens only once
     private bool audioPlayed = false; // Ensure audio is played only once
 
     private void Start()
     {
-        // Subscribe to the selectEntered event
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.AddListener(OnGrab);
-        }
-        else
-        {
-            Debug.LogWarning("No XRGrabInteractable assigned to the script!");
-        }
-    }
-
-    private void OnDestroy()
-    {
-        // Unsubscribe from the selectEntered event
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.RemoveListener(OnGrab);
-        }
+        startPos = objToMove.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,9 +39,9 @@ public class GetStuckIdiot : MonoBehaviour
         }
     }
 
-    private void OnGrab(SelectEnterEventArgs args)
+    private void Update()
     {
-        if (!hasInteracted)
+        if (objToMove.transform.position.z - startPos.z > 1 && !hasInteracted)
         {
             StartBoatMovement();
         }
@@ -65,7 +49,7 @@ public class GetStuckIdiot : MonoBehaviour
 
     private void StartBoatMovement()
     {
-        boat.speed = 5; // Restore speed
+        boat.speed = 10; // Restore speed
         boatRb.velocity = boat.transform.forward * boat.speed; // Explicitly set velocity
 
         col.enabled = true;
@@ -74,5 +58,6 @@ public class GetStuckIdiot : MonoBehaviour
 
         hasInteracted = true; // Prevent multiple interactions
         Debug.Log("Boat started moving after grab!");
+        Debug.Log(objToMove.transform.position.x - startPos.x);
     }
 }
